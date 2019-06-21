@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Haeader Mount Snapshot Test 1`] = `
+.emotion-0 {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+}
+
+.emotion-0:disabled:hover {
+  cursor: none;
+}
+
+.emotion-0:hover {
+  cursor: pointer;
+}
+
+.emotion-2 {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+}
+
+.emotion-2:disabled:hover {
+  cursor: none;
+}
+
+.emotion-2:hover {
+  cursor: pointer;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "cursor_disabled": "none",
+      "cursor_hover": "pointer",
+      "height_max": "100vh",
+      "primaryBackgroundColor": "black",
+      "primaryColor": "white",
+      "spacing_l": "10px",
+      "spacing_m": "5px",
+      "spacing_s": "2px",
+      "spacing_xl": "15px",
+      "width_max": "100%",
+    }
+  }
+>
+  <Provider
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+  >
+    <BrowserRouter>
+      <Router
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+      >
+        <Connect(Header)>
+          <Header
+            setTheme={[Function]}
+          >
+            <Link
+              to="/"
+            >
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                 Portfolio 
+              </a>
+            </Link>
+            <Link
+              to="/blogs"
+            >
+              <a
+                href="/blogs"
+                onClick={[Function]}
+              >
+                 Blogs 
+              </a>
+            </Link>
+            <DarkButton
+              disabled={false}
+              onClick={[Function]}
+            >
+              <button
+                className="emotion-0 emotion-1"
+                disabled={false}
+                onClick={[Function]}
+              >
+                Dark Theme
+              </button>
+            </DarkButton>
+            <LightButton
+              disabled={false}
+              onClick={[Function]}
+            >
+              <button
+                className="emotion-2 emotion-3"
+                disabled={false}
+                onClick={[Function]}
+              >
+                Light Theme
+              </button>
+            </LightButton>
+          </Header>
+        </Connect(Header)>
+      </Router>
+    </BrowserRouter>
+  </Provider>
+</ThemeProvider>
+`;
