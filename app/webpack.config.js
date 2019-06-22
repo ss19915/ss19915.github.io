@@ -7,7 +7,18 @@ const mode = {
     PRODUCTION: 'production',
     DEVELOPMENT: 'development',
 }
+const distDirectoryPath = 'dist';
+const distOutputFilename = 'index.js';
+const htmlInputFilePaths = {
+    [mode.DEVELOPMENT]: './src/index.html',
+    [mode.PRODUCTION]: './src/index.html.prod',
+};
+const htmlOutputFilePath = 'index.html';
+  
+const entryPoint = './src/index.js';
+
 module.exports = (env, argv) => {
+    const { mode } = argv;
 
     const module = {
         rules: [
@@ -25,7 +36,7 @@ module.exports = (env, argv) => {
 
     const plugins = [
         new CopyPlugin([
-            { from: './src/index.html', to: 'index.html' }
+            { from: htmlInputFilePaths[mode], to: htmlOutputFilePath }
         ]),
         new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin(),
@@ -43,7 +54,7 @@ module.exports = (env, argv) => {
     let optimization = {};
 
 
-    if(argv.mode === mode.PRODUCTION){
+    if(mode === mode.PRODUCTION){
 
         const productionOptimization = {
             mangleWasmImports: true,
@@ -56,10 +67,10 @@ module.exports = (env, argv) => {
 
     }
     return ({
-        entry: './src/index.js',
+        entry: entryPoint,
         output: {
-            path: path.resolve(__dirname, 'dist'),
-            filename: 'bundle.js'
+            path: path.resolve(__dirname, distDirectoryPath),
+            filename: distOutputFilename,
         },
         module,
         plugins,
