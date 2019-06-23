@@ -24,6 +24,7 @@ find $GITPAGES_BUILD_PATH \
     -not -path ${GITPAGES_BUILD_PATH}'/app' \
     -not -path ${GITPAGES_BUILD_PATH}'/.git/*' \
     -not -path ${GITPAGES_BUILD_PATH}'/.git' \
+    -not -path ${GITPAGES_BUILD_PATH}'/README.md' \
     -not -path $GITPAGES_BUILD_PATH \
     -delete
 
