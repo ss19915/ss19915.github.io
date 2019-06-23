@@ -2,18 +2,27 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const DotEnv = require('dotenv-webpack');
+const webpackDotEnv = require('dotenv-webpack');
+const dotEnv = require('dotenv');
+
+const ENV = dotEnv.config('.env').parsed;
+const {
+    BUILD_PATH,
+    APP_FILE,
+    BUILD_FILE,
+} = ENV;
+
 const mode = {
     PRODUCTION: 'production',
     DEVELOPMENT: 'development',
 }
-const distDirectoryPath = 'dist';
-const distOutputFilename = 'index.js';
+const  buildOutputPath = BUILD_PATH ? BUILD_PATH : 'dist';
+const buildOutputFile = APP_FILE ? APP_FILE : 'index.js';
 const htmlInputFilePaths = {
     [mode.DEVELOPMENT]: './src/index.html',
     [mode.PRODUCTION]: './src/index.html.prod',
 };
-const htmlOutputFilePath = 'index.html';
+const htmlOutputFilePath = BUILD_FILE ? BUILD_FILE : 'index.html';
   
 const entryPoint = './src/index.js';
 
@@ -40,7 +49,7 @@ module.exports = (env, argv) => {
         ]),
         new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin(),
-        new DotEnv(),
+        new webpackDotEnv(),
     ];
 
     const devServer = {
@@ -69,8 +78,8 @@ module.exports = (env, argv) => {
     return ({
         entry: entryPoint,
         output: {
-            path: path.resolve(__dirname, distDirectoryPath),
-            filename: distOutputFilename,
+            path: path.resolve(__dirname, buildOutputPath),
+            filename: buildOutputFile,
         },
         module,
         plugins,
