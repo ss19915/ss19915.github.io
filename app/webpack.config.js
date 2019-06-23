@@ -4,8 +4,13 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpackDotEnv = require('dotenv-webpack');
 const dotEnv = require('dotenv');
+const fs = require('fs');
 
-const ENV = dotEnv.config('.env').parsed;
+let ENV = {};
+if(fs.existsSync('.env')){
+    ENV = dotEnv.config('.env').parsed;
+}
+
 const {
     WEBPACK_BUILD_PATH,
     APP_FILE,
