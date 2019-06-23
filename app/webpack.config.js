@@ -7,7 +7,7 @@ const dotEnv = require('dotenv');
 
 const ENV = dotEnv.config('.env').parsed;
 const {
-    BUILD_PATH,
+    WEBPACK_BUILD_PATH,
     APP_FILE,
     BUILD_FILE,
 } = ENV;
@@ -16,7 +16,7 @@ const mode = {
     PRODUCTION: 'production',
     DEVELOPMENT: 'development',
 }
-const  buildOutputPath = BUILD_PATH ? BUILD_PATH : 'dist';
+const  buildOutputPath = WEBPACK_BUILD_PATH ? WEBPACK_BUILD_PATH : 'dist';
 const buildOutputFile = APP_FILE ? APP_FILE : 'index.js';
 const htmlInputFilePaths = {
     [mode.DEVELOPMENT]: './src/index.html',
