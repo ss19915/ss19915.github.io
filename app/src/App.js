@@ -4,6 +4,7 @@ import { ThemeProvider } from 'emotion-theming';
 import themes from './themes';
 import { connect } from 'react-redux';
 import Home from './components';
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends React.Component {
     render() {

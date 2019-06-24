@@ -1,8 +1,9 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
-import { Div, Window } from '../Commom';
-import { BrowserRouter, Route, Link, } from 'react-router-dom';
+import { Div, Window } from '../StyledComponents/Common';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Header from '../Header'
+import BlogsViewer from '../BlogsViewer';
 
 const Home = () => {
 
@@ -17,7 +18,7 @@ const Home = () => {
                             Something Awesome is comming.
                         </div>
                     )} />
-                    <Route path='/blogs' component={() => ('blog Viewer')}/>
+                    <Route path='/blogs' component={BlogsViewer}/>
                 </BrowserRouter>
             </Div>
         </Window>

@@ -45,6 +45,50 @@ module.exports = (env, argv) => {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
+
+            {
+                test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            mimetype: 'application/font-woff',
+                            name: '[path][name].[ext]',
+                            context: 'src',
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(png|jpe?g|gif|ico)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]',
+                            context: 'src',
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    "babel-loader",
+                    {
+                        loader: "react-svg-loader",
+                        options: {
+                            svgo: {
+                                plugins: [
+                                    { removeTitle: false }
+                                ],
+                                floatPrecision: 2
+                            }
+                        }
+                    }
+                ]
+            },
         ],
     };
 
@@ -62,7 +106,7 @@ module.exports = (env, argv) => {
         port: 3000,
         historyApiFallback: {
             index: '/'
-        }
+        },
     }
 
     let optimization = {};
