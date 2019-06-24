@@ -1,7 +1,7 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
 import { Div, Window } from '../StyledComponents/Common';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, HashRouter } from 'react-router-dom';
 import Header from '../Header'
 import BlogsViewer from '../BlogsViewer';
 
@@ -11,7 +11,7 @@ const Home = () => {
         <Window>
             <Div>
                 <Global styles={css({ body: { margin: 0 } })} />
-                <BrowserRouter>
+                <HashRouter>
                     <Route path='/' component={Header} />
                     <Route path='/' exact component={ () => (
                         <div>
@@ -19,7 +19,7 @@ const Home = () => {
                         </div>
                     )} />
                     <Route path='/blogs' component={BlogsViewer}/>
-                </BrowserRouter>
+                </HashRouter>
             </Div>
         </Window>
     );
