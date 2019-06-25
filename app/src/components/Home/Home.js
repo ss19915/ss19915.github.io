@@ -1,7 +1,7 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
 import { Div, Window } from '../StyledComponents/Common';
-import { BrowserRouter, Route, HashRouter } from 'react-router-dom';
+import { Route, HashRouter } from 'react-router-dom';
 import Header from '../Header'
 import BlogsViewer from '../BlogsViewer';
 

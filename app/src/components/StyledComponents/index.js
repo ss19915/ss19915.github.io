@@ -1,7 +1,9 @@
 import {
+    Button,
     Segment,
-} from 'semantic-ui-react';
+} from './Semantic';
 
 export {
+    Button,
     Segment,
 } ;

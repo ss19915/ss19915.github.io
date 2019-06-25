@@ -1,11 +1,9 @@
 import styled from '@emotion/styled';
-import { Button as SButton} from 'semantic-ui-react';
+import { Button as SButton, Segment as SSegment } from 'semantic-ui-react';
 
-const Button = styled(SButton)(({ theme }) => ({
-    padding: theme.spacing_m,
-    margin: theme.spacing_l,
-    borderRadius: theme.spacing_m,
+const Button = styled(SButton)(({ theme }) => ({ '&&': {
     color: theme.primaryColor,
+    backgroundColor: theme.secondaryBackgroundColor,
     ':disabled': {
         ':hover': {
             cursor: theme.cursor_disabled,
@@ -14,6 +12,12 @@ const Button = styled(SButton)(({ theme }) => ({
     ':hover': {
         cursor: theme.cursor_hover
     }
-}));
+}}));
 
-export { Button };
+const Segment = styled(SSegment)(({ theme }) => ({ '&&': {
+    backgroundColor: theme.primaryBackgroundColor,
+    borderColor: theme.secondaryBackgroundColor,
+}}));
+
+Segment.Group = SSegment.Group;
+export { Button, Segment };
